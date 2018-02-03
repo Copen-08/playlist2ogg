@@ -31,7 +31,7 @@ for ($i=0; $i -lt $files.Count; $i++) {
 	$fileName = $files[$i].FullName
 	$mp3Name = $fileName -replace $files[$i].Extension, ".ogg"
 	$mp3Name = $mp3Name -replace "VIDEO", "AUDIO"
-	$args = '-i "' + $fileName + '" -acodec libvorbis "' + $mp3Name +'"'
+	$args = '-i "' + $fileName + '" -vn -acodec libvorbis "' + $mp3Name +'"'
 	Write-Host $args
 	$ffpath = $config.exeDir +'ffmpeg.exe'
 	Start-Process -FilePath $ffpath -ArgumentList $args -Wait -NoNewWindow

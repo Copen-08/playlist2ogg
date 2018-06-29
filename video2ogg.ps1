@@ -16,6 +16,10 @@ $ipath = $config.resultDir +'VIDEO\SINGLES\'
 $opath = $config.resultDir +'AUDIO\SINGLES\'
 $litInputPath = $ipath -replace "\\", "/"
 
+#create the directories for VIDEO\SINGLES and AUDIO\SINGLES
+New-Item -ItemType Directory -Force -Path $ipath
+New-Item -ItemType Directory -Force -Path $opath
+
 #Get the playlist url and run youtube-dl with it. Tsos all the videos in the VIDEO folder.
 $playlist = Read-Host -Prompt 'Please input the video url'
 $filename = Read-Host -Prompt 'Please input the desired filename (without the extention)'
